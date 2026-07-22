@@ -13,13 +13,17 @@ needed to build the site.
 - Orange-red: `#E85D3D` — secondary counter-tone, used sparingly (a single
   highlight, a badge, an accent inside the isotype). Never a primary CTA
   color, never the default over ink blue.
+- Neutral grey: `#8C8C90` — pairs with carbon black for two-tone/monochrome
+  contexts (e.g. `assets/isotype-bw.png`).
 
 ## Isotype
 
 A 16-bit pixel-art onigiri — the logomark. File: `assets/isotype.png`
-(200×200, transparent, hard pixel edges — don't resample). Under a
-Vecteezy Free License — see [AGENTS.md](../AGENTS.md) for the mandatory
-attribution requirement before this asset ships on a live page.
+(200×200, transparent, hard pixel edges — don't resample). Monochrome
+version: `assets/isotype-bw.png` (black + grey, not black + white — flat
+black-on-white read as too stark). Under a Vecteezy Free License — see
+[AGENTS.md](../AGENTS.md) for the mandatory attribution requirement before
+this asset ships on a live page.
 
 ## Nori
 
