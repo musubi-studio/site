@@ -16,7 +16,10 @@ needed to build the site.
 
 ## Isotype
 
-A 16-bit pixel-art onigiri — the logomark.
+A 16-bit pixel-art onigiri — the logomark. File: `assets/isotype.png`
+(200×200, transparent, hard pixel edges — don't resample). Under a
+Vecteezy Free License — see [AGENTS.md](../AGENTS.md) for the mandatory
+attribution requirement before this asset ships on a live page.
 
 ## Nori
 

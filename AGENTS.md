@@ -9,3 +9,10 @@ This repo is **public**. Guardrails:
   `musubi-brand-design` project skill.
 - No secrets, API keys, or `.env` values ever committed here.
 - Docs in English, concise.
+- **`assets/isotype.png` (the onigiri mark) is under a Vecteezy Free
+  License — attribution is legally required, not optional.** Before this
+  site goes live publicly, it must credit "Vecteezy.com" (linked, where
+  possible) somewhere in the rendered pages — footer is the natural spot.
+  Not yet placed anywhere; no pages exist yet. See `musubi-brand/docs/BRAND.md`
+  §Visual for the full requirement. Do not ship a page using this asset
+  without it.
