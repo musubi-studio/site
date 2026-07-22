@@ -8,13 +8,15 @@ needed to build the site.
 
 - Raw paper: `#F9F9FB` (base surface)
 - Carbon black: `#111113` (text/ink)
-- One technical accent (terminal green or ink blue) — CTAs, interactive
-  states, and code only. Never decorative.
+- Ink blue: `#2563EB` — primary technical accent. CTAs, interactive states,
+  and code only. Never decorative.
+- Orange-red: `#E85D3D` — secondary counter-tone, used sparingly (a single
+  highlight, a badge, an accent inside the isotype). Never a primary CTA
+  color, never the default over ink blue.
 
 ## Isotype
 
-Abstract triangle — 3 pillars (Data / AI / Architecture), also reads as a
-graph/connection node. No literal onigiri/food imagery.
+A 16-bit pixel-art onigiri — the logomark.
 
 ## Nori
 
@@ -23,6 +25,7 @@ containers) — never decorative illustration.
 
 ## Typography / voice
 
+IBM Plex Sans (UI) + IBM Plex Mono (code/technical-register contexts).
 Direct, no inflated adjectives, no "handcrafted"/artisanal framing.
 
 ## Coherence check

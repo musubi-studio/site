@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+:root {
+  --musubi-color-paper: #f9f9fb;
+  --musubi-color-carbon: #111113;
+  --musubi-color-accent: #2563eb;
+  --musubi-color-accent-counter: #e85d3d;
+  --musubi-color-border: #e3e3e9;
+
+  --musubi-font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --musubi-font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --musubi-space-sm: 8px;
+  --musubi-space-md: 16px;
+  --musubi-space-lg: 24px;
+
+  --musubi-radius-sm: 7px;
+  --musubi-radius-md: 12px;
+
+  --musubi-shadow-sm: 0 1px 2px rgba(17, 17, 19, 0.06), 0 1px 1px rgba(17, 17, 19, 0.04);
+  --musubi-shadow-md: 0 8px 24px rgba(17, 17, 19, 0.08), 0 2px 6px rgba(17, 17, 19, 0.05);
+
+  --musubi-ease: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Button */
+
+.musubi-button {
+  font-family: var(--musubi-font-sans);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: var(--musubi-radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  box-shadow: var(--musubi-shadow-sm);
+  transition: transform var(--musubi-ease), box-shadow var(--musubi-ease), background-color var(--musubi-ease);
+}
+
+.musubi-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.musubi-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.musubi-button:focus-visible {
+  outline: 2px solid var(--musubi-color-accent);
+  outline-offset: 2px;
+}
+
+.musubi-button--sm {
+  padding: var(--musubi-space-sm) var(--musubi-space-md);
+  font-size: 13px;
+}
+
+.musubi-button--md {
+  padding: 12px var(--musubi-space-lg);
+  font-size: 15px;
+}
+
+.musubi-button--primary {
+  background: var(--musubi-color-accent);
+  color: #ffffff;
+}
+
+.musubi-button--primary:hover:not(:disabled) {
+  box-shadow: var(--musubi-shadow-md), 0 4px 14px rgba(37, 99, 235, 0.28);
+}
+
+.musubi-button--secondary {
+  background: var(--musubi-color-paper);
+  color: var(--musubi-color-carbon);
+  border-color: var(--musubi-color-border);
+  box-shadow: none;
+}
+
+.musubi-button--secondary:hover:not(:disabled) {
+  background: rgba(17, 17, 19, 0.035);
+}
+
+.musubi-button--counter {
+  background: var(--musubi-color-accent-counter);
+  color: var(--musubi-color-carbon);
+}
+
+.musubi-button--counter:hover:not(:disabled) {
+  box-shadow: var(--musubi-shadow-md), 0 4px 14px rgba(232, 93, 61, 0.3);
+}
+
+.musubi-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Card */
+
+.musubi-card {
+  background: var(--musubi-color-paper);
+  color: var(--musubi-color-carbon);
+  border: 1px solid var(--musubi-color-border);
+  border-radius: var(--musubi-radius-md);
+  box-shadow: var(--musubi-shadow-md);
+  font-family: var(--musubi-font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.musubi-card--sm {
+  padding: var(--musubi-space-sm);
+}
+
+.musubi-card--md {
+  padding: var(--musubi-space-md);
+}
+
+.musubi-card--lg {
+  padding: var(--musubi-space-lg);
+}
+
+.musubi-card__title {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.musubi-card__body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(17, 17, 19, 0.82);
+}
+
+/* Nori band — dark, textured horizontal band (brand rule: functional device, never decorative) */
+
+.musubi-nori-band {
+  position: relative;
+  background-color: var(--musubi-color-carbon);
+  background-image:
+    repeating-linear-gradient(
+      124deg,
+      rgba(255, 255, 255, 0.05) 0px,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.12));
+  color: var(--musubi-color-paper);
+  font-family: var(--musubi-font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.musubi-nori-band--footer {
+  padding: var(--musubi-space-lg);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  color: rgba(249, 249, 251, 0.72);
+}
+
+.musubi-nori-band--code {
+  padding: var(--musubi-space-md);
+  font-family: var(--musubi-font-mono);
+  font-size: 13px;
+  border-radius: var(--musubi-radius-sm);
+  border-top: 2px solid var(--musubi-color-accent);
+}

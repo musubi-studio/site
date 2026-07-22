@@ -1,0 +1,9 @@
+{
+  "pkg": "musubi-ui",
+  "globalName": "MusubiUI",
+  "projectId": "c58e16e3-d679-47ae-8434-411958be28e3",
+  "shape": "package",
+  "buildCmd": "npm run build",
+  "cssEntry": "dist/styles.css",
+  "readmeHeader": ".design-sync/conventions.md"
+}
