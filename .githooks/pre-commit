@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+# Run before every commit. Activate once with:
+#   git config core.hooksPath .githooks
+
+set -e
+
+# 1. Secret scan on staged files only
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks protect --staged --no-banner
+else
+  echo "⚠  gitleaks not found — skipping secret scan (install: https://github.com/gitleaks/gitleaks)"
+fi
+
+# 2. Prettier format check on staged .astro/.css/.ts files
+STAGED=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(astro|css|ts|tsx)$' || true)
+if [ -n "$STAGED" ]; then
+  cd site
+  echo "$STAGED" | xargs npx prettier --check 2>&1
+  cd ..
+fi
