@@ -35,6 +35,13 @@ const principles = [
     <!-- Grain overlay -->
     <div class="grain-overlay" aria-hidden="true"></div>
 
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation" aria-hidden="true">
+      <a href="#capabilities" class="mobile-nav-link">Work</a>
+      <a href="#philosophy" class="mobile-nav-link">Approach</a>
+      <a href={`mailto:${CONTACT_EMAIL}`} class="mobile-nav-link">Contact</a>
+    </div>
+
     <!-- Header -->
     <header class="site-header" id="site-header">
       <div class="site-header-inner">
@@ -42,11 +49,16 @@ const principles = [
           <img src="/isotype.png" alt="Musubi" width="36" height="36" />
           <span class="wordmark">Musubi</span>
         </a>
-        <nav>
+        <nav class="desktop-nav">
           <a href="#capabilities" class="nav-link">Work</a>
           <a href="#philosophy" class="nav-link">Approach</a>
           <a href={`mailto:${CONTACT_EMAIL}`} class="nav-link">Contact</a>
         </nav>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
 
@@ -340,6 +352,38 @@ const principles = [
       const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
+    </script>
+
+    <script>
+      const btn  = document.getElementById("hamburger");
+      const menu = document.getElementById("mobile-menu");
+
+      function openMenu() {
+        menu.classList.add("is-open");
+        menu.setAttribute("aria-hidden", "false");
+        btn.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+      }
+      function closeMenu() {
+        menu.classList.remove("is-open");
+        menu.setAttribute("aria-hidden", "true");
+        btn.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
+
+      btn.addEventListener("click", () => {
+        btn.getAttribute("aria-expanded") === "true" ? closeMenu() : openMenu();
+      });
+
+      // Close on link click
+      menu.querySelectorAll(".mobile-nav-link").forEach((a) => {
+        a.addEventListener("click", closeMenu);
+      });
+
+      // Close on Escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
     </script>
 
     <script>
