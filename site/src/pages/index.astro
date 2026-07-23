@@ -1,22 +1,21 @@
 ---
-import { Card, NoriBand } from "musubi-ui";
 import "../styles/global.css";
 
+const CONTACT_EMAIL = "hello@musubi.lat";
+
 const capabilities = [
-  { name: "Connect", desc: "Tie together the systems and data your team already has — no rip-and-replace." },
-  { name: "Integrate", desc: "Make disconnected tools work as one, without a platform migration." },
-  { name: "Automate", desc: "Take repetitive work off your team's plate, safely and incrementally." },
-  { name: "Scale", desc: "Grow what already works instead of rebuilding it." },
+  { no: "01", title: "Connect",   body: "Tie together the systems and data your team already has — no rip-and-replace." },
+  { no: "02", title: "Integrate", body: "Make disconnected tools work as one, without a platform migration." },
+  { no: "03", title: "Automate",  body: "Take repetitive work off your team's plate, safely and incrementally." },
+  { no: "04", title: "Scale",     body: "Grow what already works instead of rebuilding it." },
 ];
 
-const brandRules = [
+const principles = [
   "We don't replace systems for the sake of it. We connect what already works.",
   "We don't design giant platforms. We compose small pieces.",
   "We don't deliver projects. We build capabilities.",
   "We build systems the client's team can understand, operate, and extend.",
 ];
-
-const CONTACT_EMAIL = "hello@musubi.lat";
 ---
 <!doctype html>
 <html lang="en">
@@ -26,121 +25,343 @@ const CONTACT_EMAIL = "hello@musubi.lat";
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <title>Musubi — Engineering studio for growing companies</title>
     <meta name="description" content="Musubi designs and builds automations, data platforms, and AI systems through small, measurable, incremental delivery." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
+
+    <!-- Grain overlay -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- Header -->
     <header class="site-header" id="site-header">
       <div class="site-header-inner">
-        <div class="brand">
-          <img src="/isotype.png" alt="Musubi" width="28" height="28" />
+        <a href="#top" class="brand" aria-label="Musubi home">
+          <img src="/isotype.png" alt="Musubi" width="36" height="36" />
           <span class="wordmark">Musubi</span>
-        </div>
+        </a>
         <nav>
-          <a href="#capabilities">Capabilities</a>
-          <a href="#philosophy">Philosophy</a>
-          <a class="musubi-button musubi-button--primary musubi-button--sm" href={`mailto:${CONTACT_EMAIL}`}>
-            Get in touch
-          </a>
+          <a href="#capabilities" class="nav-link">Work</a>
+          <a href="#philosophy" class="nav-link">Approach</a>
+          <a href={`mailto:${CONTACT_EMAIL}`} class="nav-link">Contact</a>
         </nav>
       </div>
     </header>
 
-    <section class="hero container reveal">
-      <p class="eyebrow">Engineering studio</p>
-      <h1>What you need, working, on time.</h1>
-      <p>
-        Musubi designs and builds automations, data platforms, and AI systems
-        for growing companies — through small, measurable, incremental
-        delivery.
-      </p>
-      <a class="musubi-button musubi-button--primary musubi-button--md" href={`mailto:${CONTACT_EMAIL}`}>
-        Get in touch
-      </a>
-    </section>
+    <main id="top">
 
-    <NoriBand as="div" variant="footer" className="nori-divider" aria-hidden="true">{""}</NoriBand>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <p class="eyebrow">
+                <span class="eyebrow-rule" aria-hidden="true"></span>
+                Engineering studio
+              </p>
+              <h1>
+                We tie the loose ends into systems that{" "}
+                <em>simply work</em>.
+              </h1>
+              <p class="hero-sub">
+                Musubi designs and builds automations, data platforms, and AI
+                systems for growing companies — delivered in small, measurable
+                increments.
+              </p>
+              <div class="hero-actions">
+                <a href={`mailto:${CONTACT_EMAIL}`} class="cta-btn">Start a conversation</a>
+                <a href="#capabilities" class="cta-btn cta-btn--ghost">See what we do</a>
+              </div>
+            </div>
 
-    <section id="capabilities" class="capabilities container reveal">
-      <div class="heading-row">
-        <p class="eyebrow">Capabilities</p>
-      </div>
-      <div class="capabilities-grid">
-        {capabilities.map((c) => (
-          <Card padding="md">
-            <h3>{c.name}</h3>
-            <p>{c.desc}</p>
-          </Card>
-        ))}
-      </div>
-    </section>
-
-    <NoriBand as="div" variant="footer" className="nori-divider" aria-hidden="true">{""}</NoriBand>
-
-    <section id="philosophy" class="philosophy container reveal">
-      <p class="eyebrow" style="text-align:center">Philosophy</p>
-      <blockquote class="manifesto">
-        <span class="hanko-stamp" aria-hidden="true">M</span>
-        Software ages when it tries to solve everything on day one. We
-        prefer small, understandable, evolvable systems. Every delivery
-        solves a real problem, integrates with what exists, and leaves the
-        path open for the next step. The best technology is the one that
-        disappears behind people's work.
-      </blockquote>
-      <ul class="brand-rules">
-        {brandRules.map((rule) => (
-          <li>{rule}</li>
-        ))}
-      </ul>
-    </section>
-
-    <section class="closing-cta container reveal">
-      <p>Let's build the next step.</p>
-      <a class="musubi-button musubi-button--primary musubi-button--md" href={`mailto:${CONTACT_EMAIL}`}>
-        Get in touch
-      </a>
-    </section>
-
-    <NoriBand as="footer" variant="footer">
-      <div class="container site-footer-inner">
-        <div class="footer-brand">
-          <span class="isotype-badge">
-            <img src="/isotype.png" alt="Musubi" width="22" height="22" />
-          </span>
-          <span class="wordmark">Musubi</span>
+            <div>
+              <canvas id="hero-graph"></canvas>
+              <p class="hero-caption">結び — musubi, to bind and connect.</p>
+            </div>
+          </div>
         </div>
-        <div class="footer-links">
-          <span>© Musubi</span>
-        </div>
-      </div>
-    </NoriBand>
+      </section>
 
-    <p class="credits">
-      Onigiri isotype via
-      <a href="https://www.vecteezy.com" target="_blank" rel="noopener noreferrer">Vecteezy.com</a>
-    </p>
+      <!-- Capabilities -->
+      <section id="capabilities" class="capabilities reveal" style="scroll-margin-top:96px">
+        <div class="container">
+          <p class="eyebrow">What we do</p>
+          <h2>Four ways we help you move.</h2>
+          <div class="capabilities-grid">
+            {capabilities.map((c) => (
+              <div class="capability-item">
+                <span class="num">{c.no}</span>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Philosophy -->
+      <section id="philosophy" class="philosophy reveal" style="scroll-margin-top:96px">
+        <div class="container" style="max-width:768px">
+          <p class="eyebrow">Approach</p>
+          <blockquote>
+            Software ages when it tries to solve everything on day one. We
+            prefer small, understandable, evolvable systems — each delivery
+            solving a real problem, integrating with what exists, and leaving
+            the path open for the next step. The best technology is the one
+            that <em>disappears</em> behind people's work.
+          </blockquote>
+          <div class="rule-draw" aria-hidden="true"></div>
+          <ul class="principles">
+            {principles.map((p) => (
+              <li>{p}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <!-- Closing CTA -->
+      <section class="closing-cta reveal">
+        <div class="container">
+          <img src="/musubi-enso.png" alt="" aria-hidden="true" />
+          <h2>Let's tie the next piece together.</h2>
+          <p>
+            Tell us where the loose ends are. We'll help you connect them
+            into something calm and dependable.
+          </p>
+          <a href={`mailto:${CONTACT_EMAIL}`} class="cta-btn">Start a conversation</a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer-inner">
+          <a href="#top" class="brand" aria-label="Musubi home">
+            <img src="/isotype.png" alt="Musubi" width="28" height="28" />
+            <span class="wordmark">Musubi</span>
+          </a>
+          <ul class="footer-nav">
+            <li><a href="#capabilities" class="nav-link">Work</a></li>
+            <li><a href="#philosophy" class="nav-link">Approach</a></li>
+            <li><a href={`mailto:${CONTACT_EMAIL}`} class="nav-link">{CONTACT_EMAIL}</a></li>
+          </ul>
+          <p class="footer-copyright">© {new Date().getFullYear()} Musubi</p>
+        </div>
+        <p class="credits">
+          Onigiri isotype via <a href="https://www.vecteezy.com" target="_blank" rel="noopener noreferrer">Vecteezy.com</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+    (function () {
+      const canvas = document.getElementById("hero-graph");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+
+      const CLAY   = "#E85D3D";
+      const BLUE   = "#1D4ED8";
+      const INDIGO = "#2B4F82";
+      const CARBON = "#323232";
+
+      const N = 58; // node count
+      let W = 0, H = 0, R = 0;
+      let nodes3D = [], edges = [];
+      let rotX = 0.18, rotY = 0;
+      const mouse = { nx: 0.5, ny: 0.5, over: false }; // normalised 0-1
+
+      // Fibonacci sphere — evenly distributed N points on unit sphere
+      function buildSphere(radius) {
+        const golden = Math.PI * (3 - Math.sqrt(5));
+        return Array.from({ length: N }, (_, i) => {
+          const y    = 1 - (i / (N - 1)) * 2;
+          const r    = Math.sqrt(1 - y * y);
+          const th   = golden * i;
+          // colour & size by index
+          let color, nr;
+          if (i === 0 || i === Math.round(N * 0.55)) {
+            color = CLAY; nr = 6.5;
+          } else if (i % 13 === 0) {
+            color = CLAY; nr = 4.5;
+          } else if (i % 7 === 0) {
+            color = BLUE; nr = 4;
+          } else if (i % 5 === 0) {
+            color = INDIGO; nr = 3.5;
+          } else {
+            color = CARBON; nr = 2.4;
+          }
+          return {
+            bx: r * Math.cos(th) * radius,
+            by: y * radius,
+            bz: r * Math.sin(th) * radius,
+            // projected
+            px: 0, py: 0, pz: 0, pscale: 1,
+            color, r: nr,
+          };
+        });
+      }
+
+      // Connect nodes closer than `thresh` chord distance
+      function buildEdges(ns, thresh) {
+        const result = [];
+        for (let i = 0; i < ns.length; i++) {
+          for (let j = i + 1; j < ns.length; j++) {
+            const dx = ns[i].bx - ns[j].bx;
+            const dy = ns[i].by - ns[j].by;
+            const dz = ns[i].bz - ns[j].bz;
+            if (dx*dx + dy*dy + dz*dz < thresh * thresh) result.push([i, j]);
+          }
+        }
+        return result;
+      }
+
+      function init() {
+        const dpr  = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        if (!rect.width) return;
+        W = rect.width; H = rect.height;
+        canvas.width  = W * dpr;
+        canvas.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        R       = Math.min(W, H) * 0.46;
+        nodes3D = buildSphere(R);
+        edges   = buildEdges(nodes3D, R * 0.72);
+      }
+
+      // Rotate (bx,by,bz) by angles rx (pitch) and ry (yaw)
+      function rotatePoint(bx, by, bz, rx, ry) {
+        const cy = Math.cos(ry), sy = Math.sin(ry);
+        const x1 =  bx * cy + bz * sy;
+        const z1 = -bx * sy + bz * cy;
+        const cx2 = Math.cos(rx), sx2 = Math.sin(rx);
+        return { x: x1, y: by * cx2 - z1 * sx2, z: by * sx2 + z1 * cx2 };
+      }
+
+      // Perspective project
+      function project(x, y, z) {
+        const fov = 420;
+        const s   = fov / (fov + z + R * 0.6);
+        return { px: W * 0.5 + x * s, py: H * 0.5 + y * s, scale: s };
+      }
+
+      function ringColor(color, alpha) {
+        if (color === CLAY)   return `rgba(232,93,61,${alpha})`;
+        if (color === BLUE)   return `rgba(37,99,235,${alpha})`;
+        if (color === INDIGO) return `rgba(43,79,130,${alpha})`;
+        return `rgba(50,50,50,${alpha})`;
+      }
+
+      let lastT = 0;
+      function tick(t) {
+        requestAnimationFrame(tick);
+        if (!W || !H || !nodes3D.length) return;
+        lastT = t;
+
+        // Auto-rotate + gentle wobble
+        rotY += 0.0035;
+        const wobble = Math.sin(t * 0.00028) * 0.06;
+
+        // Mouse tilt (lerp toward target)
+        const targetX = mouse.over ? (mouse.ny - 0.5) * 0.9 : 0.18;
+        const targetY = mouse.over ? rotY + (mouse.nx - 0.5) * 0.04 : rotY;
+        rotX += (targetX - rotX) * 0.04;
+        if (mouse.over) rotY += ((mouse.nx - 0.5) * 0.02);
+
+        // Project all nodes
+        for (const n of nodes3D) {
+          const { x, y, z } = rotatePoint(n.bx, n.by, n.bz, rotX + wobble, rotY);
+          n.pz = z;
+          const p = project(x, y, z);
+          n.px = p.px; n.py = p.py; n.pscale = p.scale;
+        }
+
+        ctx.clearRect(0, 0, W, H);
+
+        // Edges — depth-faded
+        for (const [i, j] of edges) {
+          const a = nodes3D[i], b = nodes3D[j];
+          const avgZ = (a.pz + b.pz) / 2;
+          const depth = (avgZ + R) / (2 * R);        // 0 back → 1 front
+          const alpha = (0.04 + depth * 0.13).toFixed(3);
+          ctx.beginPath();
+          ctx.moveTo(a.px, a.py);
+          ctx.lineTo(b.px, b.py);
+          ctx.strokeStyle = `rgba(17,17,19,${alpha})`;
+          ctx.lineWidth   = 0.7;
+          ctx.stroke();
+        }
+
+        // Nodes — back-to-front (painter's algorithm)
+        const sorted = nodes3D.slice().sort((a, b) => a.pz - b.pz);
+        for (const n of sorted) {
+          const depth  = (n.pz + R) / (2 * R);       // 0 back → 1 front
+          const alpha  = 0.28 + depth * 0.72;
+          const nr     = Math.max(n.r * n.pscale * (W / 280), 1);
+
+          // Soft glow ring for larger front nodes
+          if (depth > 0.6 && n.r >= 3.5) {
+            ctx.beginPath();
+            ctx.arc(n.px, n.py, nr + 3.5, 0, Math.PI * 2);
+            ctx.fillStyle = ringColor(n.color, (alpha * 0.16).toFixed(3));
+            ctx.fill();
+          }
+
+          ctx.globalAlpha = Math.min(alpha, 1);
+          ctx.beginPath();
+          ctx.arc(n.px, n.py, nr, 0, Math.PI * 2);
+          ctx.fillStyle = n.color;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+      }
+
+      canvas.addEventListener("mousemove", (e) => {
+        const r = canvas.getBoundingClientRect();
+        mouse.nx   = (e.clientX - r.left) / W;
+        mouse.ny   = (e.clientY - r.top)  / H;
+        mouse.over = true;
+      });
+      canvas.addEventListener("mouseleave", () => { mouse.over = false; });
+
+      const ro = new ResizeObserver(() => { init(); });
+      ro.observe(canvas);
+
+      init();
+      requestAnimationFrame(tick);
+    })();
+    </script>
 
     <script>
       const header = document.getElementById("site-header");
-      const onScroll = () => {
-        header.classList.toggle("is-scrolled", window.scrollY > 8);
-      };
+      const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
     </script>
 
     <script>
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const revealEls = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
+      if (reduced) {
+        revealEls.forEach((el) => el.classList.add("is-visible"));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
             }
-          }
-        },
-        { threshold: 0.15 }
-      );
-      for (const el of revealEls) observer.observe(el);
+          },
+          { threshold: 0.12 }
+        );
+        revealEls.forEach((el) => observer.observe(el));
+      }
     </script>
+
   </body>
 </html>
