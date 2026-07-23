@@ -43,7 +43,7 @@ const principles = [
     <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation" aria-hidden="true">
       <a href="#capabilities" class="mobile-nav-link">Work</a>
       <a href="#philosophy" class="mobile-nav-link">Approach</a>
-      <a href={`mailto:${CONTACT_EMAIL}`} class="mobile-nav-link">Contact</a>
+      <a href={`mailto:${CONTACT_EMAIL}`} class="mobile-nav-link" data-umami-event="nav-contact-mobile">Contact</a>
     </div>
 
     <!-- Header -->
@@ -56,7 +56,7 @@ const principles = [
         <nav class="desktop-nav">
           <a href="#capabilities" class="nav-link">Work</a>
           <a href="#philosophy" class="nav-link">Approach</a>
-          <a href={`mailto:${CONTACT_EMAIL}`} class="nav-link">Contact</a>
+          <a href={`mailto:${CONTACT_EMAIL}`} class="nav-link" data-umami-event="nav-contact">Contact</a>
         </nav>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
           <span></span>
@@ -87,8 +87,8 @@ const principles = [
                 increments.
               </p>
               <div class="hero-actions">
-                <a href={`mailto:${CONTACT_EMAIL}`} class="cta-btn">Start a conversation</a>
-                <a href="#capabilities" class="cta-btn cta-btn--ghost">See what we do</a>
+                <a href={`mailto:${CONTACT_EMAIL}`} class="cta-btn" data-umami-event="hero-cta-contact">Start a conversation</a>
+                <a href="#capabilities" class="cta-btn cta-btn--ghost" data-umami-event="hero-cta-work">See what we do</a>
               </div>
             </div>
 
@@ -146,7 +146,7 @@ const principles = [
             Tell us where the loose ends are. We'll help you connect them
             into something calm and dependable.
           </p>
-          <a href={`mailto:${CONTACT_EMAIL}`} class="cta-btn">Start a conversation</a>
+          <a href={`mailto:${CONTACT_EMAIL}`} class="cta-btn" data-umami-event="closing-cta-contact">Start a conversation</a>
         </div>
       </section>
 
@@ -163,7 +163,7 @@ const principles = [
           <ul class="footer-nav">
             <li><a href="#capabilities" class="nav-link">Work</a></li>
             <li><a href="#philosophy" class="nav-link">Approach</a></li>
-            <li><a href={`mailto:${CONTACT_EMAIL}`} class="nav-link">{CONTACT_EMAIL}</a></li>
+            <li><a href={`mailto:${CONTACT_EMAIL}`} class="nav-link" data-umami-event="footer-contact">{CONTACT_EMAIL}</a></li>
           </ul>
           <p class="footer-copyright">© {new Date().getFullYear()} Musubi</p>
         </div>
