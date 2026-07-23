@@ -28,15 +28,15 @@ rather than arbitrary values:
 
 | Token | Value | Use |
 |---|---|---|
-| `--musubi-color-paper` | `#F9F9FB` | base surface |
+| `--musubi-color-paper` | `#F2F0E8` | base surface |
 | `--musubi-color-carbon` | `#111113` | ink/text |
 | `--musubi-color-accent` | `#2563EB` | primary technical accent — CTAs, interactive states, code only. Never decorative. |
 | `--musubi-color-accent-counter` | `#E85D3D` | sparse counter-tone — one highlight per view at most, never a default/primary action |
-| `--musubi-color-border` | `#D8D8DE` | hairline borders |
+| `--musubi-color-border` | `#E3E3E9` | hairline borders |
 | `--musubi-font-sans` | IBM Plex Sans stack | UI text |
 | `--musubi-font-mono` | IBM Plex Mono stack | code, technical-register contexts |
 | `--musubi-space-sm` / `-md` / `-lg` | `8px` / `16px` / `24px` | spacing scale |
-| `--musubi-radius-sm` / `-md` | `4px` / `8px` | corner radius |
+| `--musubi-radius-sm` / `-md` | `7px` / `12px` | corner radius |
 
 ### Components
 

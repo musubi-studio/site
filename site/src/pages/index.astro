@@ -1,0 +1,146 @@
+---
+import { Card, NoriBand } from "musubi-ui";
+import "../styles/global.css";
+
+const capabilities = [
+  { name: "Connect", desc: "Tie together the systems and data your team already has — no rip-and-replace." },
+  { name: "Integrate", desc: "Make disconnected tools work as one, without a platform migration." },
+  { name: "Automate", desc: "Take repetitive work off your team's plate, safely and incrementally." },
+  { name: "Scale", desc: "Grow what already works instead of rebuilding it." },
+];
+
+const brandRules = [
+  "We don't replace systems for the sake of it. We connect what already works.",
+  "We don't design giant platforms. We compose small pieces.",
+  "We don't deliver projects. We build capabilities.",
+  "We build systems the client's team can understand, operate, and extend.",
+];
+
+const CONTACT_EMAIL = "hello@musubi.lat";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <title>Musubi — Engineering studio for growing companies</title>
+    <meta name="description" content="Musubi designs and builds automations, data platforms, and AI systems through small, measurable, incremental delivery." />
+  </head>
+  <body>
+    <header class="site-header" id="site-header">
+      <div class="site-header-inner">
+        <div class="brand">
+          <img src="/isotype.png" alt="Musubi" width="28" height="28" />
+          <span class="wordmark">Musubi</span>
+        </div>
+        <nav>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#philosophy">Philosophy</a>
+          <a class="musubi-button musubi-button--primary musubi-button--sm" href={`mailto:${CONTACT_EMAIL}`}>
+            Get in touch
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero container reveal">
+      <p class="eyebrow">Engineering studio</p>
+      <h1>What you need, working, on time.</h1>
+      <p>
+        Musubi designs and builds automations, data platforms, and AI systems
+        for growing companies — through small, measurable, incremental
+        delivery.
+      </p>
+      <a class="musubi-button musubi-button--primary musubi-button--md" href={`mailto:${CONTACT_EMAIL}`}>
+        Get in touch
+      </a>
+    </section>
+
+    <NoriBand as="div" variant="footer" className="nori-divider" aria-hidden="true">{""}</NoriBand>
+
+    <section id="capabilities" class="capabilities container reveal">
+      <div class="heading-row">
+        <p class="eyebrow">Capabilities</p>
+      </div>
+      <div class="capabilities-grid">
+        {capabilities.map((c) => (
+          <Card padding="md">
+            <h3>{c.name}</h3>
+            <p>{c.desc}</p>
+          </Card>
+        ))}
+      </div>
+    </section>
+
+    <NoriBand as="div" variant="footer" className="nori-divider" aria-hidden="true">{""}</NoriBand>
+
+    <section id="philosophy" class="philosophy container reveal">
+      <p class="eyebrow" style="text-align:center">Philosophy</p>
+      <blockquote class="manifesto">
+        <span class="hanko-stamp" aria-hidden="true">M</span>
+        Software ages when it tries to solve everything on day one. We
+        prefer small, understandable, evolvable systems. Every delivery
+        solves a real problem, integrates with what exists, and leaves the
+        path open for the next step. The best technology is the one that
+        disappears behind people's work.
+      </blockquote>
+      <ul class="brand-rules">
+        {brandRules.map((rule) => (
+          <li>{rule}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="closing-cta container reveal">
+      <p>Let's build the next step.</p>
+      <a class="musubi-button musubi-button--primary musubi-button--md" href={`mailto:${CONTACT_EMAIL}`}>
+        Get in touch
+      </a>
+    </section>
+
+    <NoriBand as="footer" variant="footer">
+      <div class="container site-footer-inner">
+        <div class="footer-brand">
+          <span class="isotype-badge">
+            <img src="/isotype.png" alt="Musubi" width="22" height="22" />
+          </span>
+          <span class="wordmark">Musubi</span>
+        </div>
+        <div class="footer-links">
+          <span>© Musubi</span>
+        </div>
+      </div>
+    </NoriBand>
+
+    <p class="credits">
+      Onigiri isotype via
+      <a href="https://www.vecteezy.com" target="_blank" rel="noopener noreferrer">Vecteezy.com</a>
+    </p>
+
+    <script>
+      const header = document.getElementById("site-header");
+      const onScroll = () => {
+        header.classList.toggle("is-scrolled", window.scrollY > 8);
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    </script>
+
+    <script>
+      const revealEls = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.15 }
+      );
+      for (const el of revealEls) observer.observe(el);
+    </script>
+  </body>
+</html>

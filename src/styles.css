@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
 :root {
-  --musubi-color-paper: #f9f9fb;
+  --musubi-color-paper: #f2f0e8;
   --musubi-color-carbon: #111113;
   --musubi-color-accent: #2563eb;
   --musubi-color-accent-counter: #e85d3d;
@@ -26,9 +26,11 @@
 /* Button */
 
 .musubi-button {
+  display: inline-block;
   font-family: var(--musubi-font-sans);
   font-weight: 600;
   letter-spacing: 0.01em;
+  text-decoration: none;
   border-radius: var(--musubi-radius-sm);
   border: 1px solid transparent;
   cursor: pointer;

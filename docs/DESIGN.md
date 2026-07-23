@@ -6,7 +6,7 @@ needed to build the site.
 
 ## Palette
 
-- Raw paper: `#F9F9FB` (base surface)
+- Raw paper: `#F2F0E8` (base surface)
 - Carbon black: `#111113` (text/ink)
 - Ink blue: `#2563EB` — primary technical accent. CTAs, interactive states,
   and code only. Never decorative.

@@ -1,0 +1,405 @@
+@import "musubi-ui/styles.css";
+
+@font-face {
+  font-family: "Sekaiwo";
+  src: url("/fonts/sekaiwo.ttf") format("truetype");
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--musubi-font-sans);
+  background: var(--musubi-color-paper);
+  color: var(--musubi-color-carbon);
+}
+
+/* Wordmark — Sekaiwo is used ONLY here, paired with the isotype. It's a
+   hand-brushed script; everything else stays IBM Plex per BRAND.md's
+   "no handcrafted framing" voice rule. */
+.wordmark {
+  font-family: "Sekaiwo", var(--musubi-font-sans);
+  font-weight: 400;
+  font-size: 1.9em;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  font-family: var(--musubi-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--musubi-color-accent);
+  margin: 0 0 16px;
+}
+
+/* Header — sticky, gains a soft ground + hairline only once scrolled past
+   the hero, so it stays quiet while the page is at rest. */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.6s ease, border-color 0.6s ease, backdrop-filter 0.6s ease;
+}
+
+.site-header.is-scrolled {
+  background: rgba(242, 240, 232, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom-color: var(--musubi-color-border);
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.site-header .brand img {
+  width: 28px;
+  height: 28px;
+  image-rendering: pixelated;
+}
+
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 14px;
+}
+
+.site-header nav a:not(.musubi-button) {
+  position: relative;
+  color: var(--musubi-color-carbon);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.4s ease, color 0.4s ease;
+}
+
+.site-header nav a:not(.musubi-button)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: -4px;
+  height: 1px;
+  background: var(--musubi-color-accent);
+  transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1), right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-header nav a:not(.musubi-button):hover {
+  opacity: 1;
+}
+
+.site-header nav a:not(.musubi-button):hover::after {
+  left: 0;
+  right: 0;
+}
+
+/* Hero */
+
+.hero {
+  position: relative;
+  padding: 96px 0 80px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* A barely-there wash of light drifting behind the hero — the one
+   "water" gesture on the page, kept subtle enough to read as atmosphere,
+   not decoration. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(37, 99, 235, 0.06),
+    transparent 60%
+  );
+  animation: hero-wash 18s ease-in-out infinite;
+}
+
+@keyframes hero-wash {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(2%, -3%) scale(1.05); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation: none;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  margin: 0 0 24px;
+  text-wrap: balance;
+}
+
+.hero p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(17, 17, 19, 0.66);
+  max-width: 52ch;
+  margin: 0 auto 36px;
+}
+
+/* Nori divider — reuses NoriBand's footer surface at a slim height, no text */
+
+.nori-divider {
+  padding: 0 !important;
+  min-height: 16px !important;
+}
+
+/* Ambient drift on Nori's woven texture — very slow, like light moving on
+   water. Page-level only (not added to the shared musubi-ui component —
+   this is a landing-page atmosphere choice, not a component default). */
+.musubi-nori-band {
+  animation: nori-drift 32s ease-in-out infinite;
+}
+
+@keyframes nori-drift {
+  0%, 100% { background-position: 0px 0px, 0 0; }
+  50% { background-position: 60px 0px, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .musubi-nori-band {
+    animation: none;
+  }
+}
+
+/* Capabilities */
+
+.capabilities {
+  padding: 80px 0;
+}
+
+.capabilities .heading-row {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.capabilities-grid h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.capabilities-grid p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(17, 17, 19, 0.66);
+}
+
+/* Philosophy */
+
+.philosophy {
+  padding: 80px 0;
+}
+
+.manifesto {
+  position: relative;
+  max-width: 62ch;
+  margin: 0 auto 56px;
+  font-size: 19px;
+  line-height: 1.7;
+  font-style: normal;
+  color: var(--musubi-color-carbon);
+  border-left: 2px solid var(--musubi-color-border);
+  padding-left: 28px;
+}
+
+/* The one deliberate use of the counter-tone on the page — a small
+   hanko-style stamp, not a UI control. */
+.hanko-stamp {
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background: var(--musubi-color-accent-counter);
+  color: #fff;
+  font-family: var(--musubi-font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-6deg);
+}
+
+.brand-rules {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 62ch;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+}
+
+.brand-rules li {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(17, 17, 19, 0.78);
+  padding-left: 20px;
+  position: relative;
+}
+
+.brand-rules li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 1.5px;
+  background: var(--musubi-color-accent);
+}
+
+/* Closing CTA */
+
+.closing-cta {
+  padding: 72px 0 96px;
+  text-align: center;
+}
+
+.closing-cta p {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 28px;
+}
+
+/* Footer */
+
+.site-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* The isotype only reads correctly on a light ground (its outline/nori are
+   carbon-colored and vanish on carbon) — the footer is dark, so the mark
+   sits on its own small paper badge rather than directly on the band. */
+.isotype-badge {
+  background: var(--musubi-color-paper);
+  border-radius: 6px;
+  padding: 4px;
+  display: inline-flex;
+  line-height: 0;
+}
+
+.isotype-badge img {
+  width: 22px;
+  height: 22px;
+  image-rendering: pixelated;
+  display: block;
+}
+
+.footer-brand span {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 12.5px;
+  color: rgba(249, 249, 251, 0.75);
+}
+
+/* Credits — kept separate from the main footer row on purpose (quiet,
+   easy to skip, but genuinely present — satisfies the isotype's license
+   attribution requirement without it competing with the brand row). */
+.credits {
+  padding: 14px 0 32px;
+  text-align: center;
+  font-size: 11.5px;
+  color: rgba(17, 17, 19, 0.45);
+}
+
+.credits a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.credits a:hover {
+  color: var(--musubi-color-accent);
+}
+
+/* Scroll reveal — a slow mist: mostly opacity + a soft blur clearing,
+   barely any movement. Calmer than a slide, closer to something
+   condensing into focus than sliding into place. */
+
+.reveal {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(6px);
+  transition: opacity 1.1s ease, filter 1.1s ease, transform 1.1s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
