@@ -4,6 +4,19 @@
   font-display: swap;
 }
 
+/* Self-hosted, subsetted to just 結び (musubi) — a live CJK string with no
+   fallback renders as a tofu box on systems without a CJK font installed
+   (confirmed earlier: this environment, and likely a meaningful share of
+   real visitors on Windows/Linux without the East Asian language pack).
+   Self-hosting the exact two glyphs needed guarantees it always renders,
+   regardless of the visitor's system fonts. */
+@font-face {
+  font-family: "Noto Serif JP Musubi";
+  src: url("/fonts/noto-serif-jp-musubi.ttf") format("truetype");
+  font-display: swap;
+  unicode-range: U+7D50, U+3073;
+}
+
 :root {
   --paper: #f2f0e8;
   --surface: #e9e6dc;
@@ -328,6 +341,11 @@ body::after {
   font-style: italic;
   color: var(--faint);
   text-align: right;
+}
+
+.hero-caption .kanji {
+  font-family: "Noto Serif JP Musubi", var(--font-serif);
+  font-style: normal;
 }
 
 /* ── Capabilities ── */
