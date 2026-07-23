@@ -30,6 +30,8 @@ jobs:
 
       - run: npm run build
         working-directory: site
+        env:
+          PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
 
       - uses: cloudflare/wrangler-action@v3
         with:
