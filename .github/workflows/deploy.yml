@@ -33,10 +33,9 @@ jobs:
         env:
           PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
 
-      - uses: cloudflare/wrangler-action@v3
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy ./dist --project-name musubi-site --branch main
+        working-directory: site
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        with:
-          command: pages deploy ./dist --project-name musubi-site --branch main
-          workingDirectory: site
