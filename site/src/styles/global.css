@@ -602,7 +602,7 @@ body::after {
 .form-status--error {
   color: var(--clay);
 }
-.form-fallback {
+.closing-cta .form-fallback {
   margin-top: 28px;
   font-size: 13px;
   color: var(--faint);
