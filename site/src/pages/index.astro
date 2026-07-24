@@ -22,6 +22,39 @@ const capabilities = [
   { no: "04", title: "Scale", body: "Grow what already works instead of rebuilding it." },
 ];
 
+const projects = [
+  {
+    tag: "Data platform",
+    problem:
+      "Your data lives in databases, spreadsheets, and SaaS tools — but there's no single place to query it.",
+    body: "We design and build the platform layer: ingestion, storage, transformation. Something your team can own without a dedicated engineering org.",
+  },
+  {
+    tag: "Legacy modernization",
+    problem:
+      "Reports take hours to run. The BI tool nobody remembers buying is still running critical dashboards.",
+    body: "We migrate what matters, retire what doesn't, and replace brittle pipelines with something maintainable — without stopping the business while we do it.",
+  },
+  {
+    tag: "DataOps",
+    problem:
+      "Deployments need manual steps. Pipelines break silently. Nobody knows what the cloud bill is actually for.",
+    body: "We bring CI/CD, observability, and cost tracking to your data workflows so failures are caught early and infrastructure is understood.",
+  },
+  {
+    tag: "Data governance",
+    problem:
+      "Access controls exist in a spreadsheet. Nobody knows where a number comes from. Compliance is a document, not a system.",
+    body: "We implement governance that's enforced by the platform — data contracts, lineage, attribute-based access — not by good intentions.",
+  },
+  {
+    tag: "AI-assisted workflows",
+    problem:
+      "Your team spends time on repetitive work that a well-configured agent could handle.",
+    body: "We deploy AI agents that accelerate data engineering work and assistants that enforce standards across teams — using the same tools we use internally.",
+  },
+];
+
 const principles = [
   "We don't replace systems for the sake of it. We connect what already works.",
   "We don't design giant platforms. We compose small pieces.",
@@ -159,6 +192,25 @@ const principles = [
                   <span class="num">{c.no}</span>
                   <h3>{c.title}</h3>
                   <p>{c.body}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="projects reveal" style="scroll-margin-top:96px">
+        <div class="container">
+          <p class="eyebrow">Work we know well</p>
+          <h2>Five problems we've solved before.</h2>
+          <div class="projects-list">
+            {
+              projects.map((p) => (
+                <div class="project-item">
+                  <span class="project-tag">{p.tag}</span>
+                  <p class="project-problem">{p.problem}</p>
+                  <p class="project-body">{p.body}</p>
                 </div>
               ))
             }

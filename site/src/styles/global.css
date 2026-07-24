@@ -400,6 +400,72 @@ body::after {
   max-width: 36ch;
 }
 
+/* ── Projects ── */
+
+.projects {
+  padding: 96px 0;
+  background: var(--bg);
+}
+
+.projects h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(23px, 3vw, 31px);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--carbon);
+  max-width: 38ch;
+  margin: 6px 0 56px;
+}
+
+.projects-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.project-item {
+  border-top: 1px solid var(--hairline);
+  padding: 32px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .project-item {
+    grid-template-columns: 180px 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+}
+
+.project-tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--clay);
+  padding-top: 3px;
+}
+
+.project-problem {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--carbon);
+  margin: 0;
+}
+
+.project-body {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0;
+}
+
 /* ── Philosophy ── */
 
 .philosophy {
