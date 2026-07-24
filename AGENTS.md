@@ -9,6 +9,8 @@ This repo is **public**. Guardrails:
   `musubi-brand-design` project skill.
 - No secrets, API keys, or `.env` values ever committed here.
 - Docs in English, concise.
+- GitHub Actions in `.github/workflows/` are pinned to a commit SHA, never
+  a mutable tag (`@v4`, `@main`) — see `musubi-brand/AGENTS.md` for why.
 - **`assets/isotype.png` (the onigiri mark) is under a Vecteezy Free
   License — attribution is legally required, not optional.** Must credit
   "Vecteezy.com" (linked) somewhere in every rendered page. Currently in
