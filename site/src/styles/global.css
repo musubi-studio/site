@@ -430,6 +430,7 @@ body::after {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
+  transition: border-color 0.4s ease;
 }
 
 @media (min-width: 768px) {
@@ -464,6 +465,49 @@ body::after {
   line-height: 1.65;
   color: var(--muted);
   margin: 0;
+}
+
+/* On hover-capable pointers, keep the list compact and reveal each body
+   line only on hover/focus — shorter list to scroll past, with the detail
+   a mouse-pass away. Touch devices (no real hover) keep everything visible
+   since there's no equivalent gesture. */
+@media (hover: hover) and (pointer: fine) {
+  .project-item:hover,
+  .project-item:focus-within {
+    border-color: var(--clay);
+  }
+  .project-item:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 6px;
+  }
+
+  .project-body-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .project-body-wrap > .project-body {
+    overflow: hidden;
+    min-height: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .project-item:hover .project-body-wrap,
+  .project-item:focus-within .project-body-wrap {
+    grid-template-rows: 1fr;
+  }
+  .project-item:hover .project-body-wrap > .project-body,
+  .project-item:focus-within .project-body-wrap > .project-body {
+    opacity: 1;
+    transition: opacity 0.45s ease 0.1s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-body-wrap,
+    .project-body-wrap > .project-body {
+      transition: none;
+    }
+  }
 }
 
 /* ── Philosophy ── */

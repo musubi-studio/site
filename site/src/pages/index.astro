@@ -207,10 +207,12 @@ const principles = [
           <div class="projects-list">
             {
               projects.map((p) => (
-                <div class="project-item">
+                <div class="project-item" tabindex="0">
                   <span class="project-tag">{p.tag}</span>
                   <p class="project-problem">{p.problem}</p>
-                  <p class="project-body">{p.body}</p>
+                  <div class="project-body-wrap">
+                    <p class="project-body">{p.body}</p>
+                  </div>
                 </div>
               ))
             }
