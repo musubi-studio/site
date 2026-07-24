@@ -73,10 +73,8 @@ const principles = [
     >
       <a href="#capabilities" class="mobile-nav-link">Work</a>
       <a href="#philosophy" class="mobile-nav-link">Approach</a>
-      <a
-        href={`mailto:${CONTACT_EMAIL}`}
-        class="mobile-nav-link"
-        data-umami-event="nav-contact-mobile">Contact</a
+      <a href="#contact" class="mobile-nav-link" data-umami-event="nav-contact-mobile"
+        >Contact</a
       >
     </div>
 
@@ -90,11 +88,7 @@ const principles = [
         <nav class="desktop-nav">
           <a href="#capabilities" class="nav-link">Work</a>
           <a href="#philosophy" class="nav-link">Approach</a>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            class="nav-link"
-            data-umami-event="nav-contact">Contact</a
-          >
+          <a href="#contact" class="nav-link" data-umami-event="nav-contact">Contact</a>
         </nav>
         <button
           class="hamburger"
@@ -128,10 +122,8 @@ const principles = [
                 growing companies — delivered in small, measurable increments.
               </p>
               <div class="hero-actions">
-                <a
-                  href={`mailto:${CONTACT_EMAIL}`}
-                  class="cta-btn"
-                  data-umami-event="hero-cta-contact">Start a conversation</a
+                <a href="#contact" class="cta-btn" data-umami-event="hero-cta-contact"
+                  >Start a conversation</a
                 >
                 <a
                   href="#capabilities"
@@ -191,8 +183,8 @@ const principles = [
         </div>
       </section>
 
-      <!-- Closing CTA -->
-      <section class="closing-cta reveal">
+      <!-- Contact -->
+      <section id="contact" class="closing-cta reveal" style="scroll-margin-top:96px">
         <div class="container">
           <img src="/musubi-enso.png" alt="" aria-hidden="true" />
           <h2>Let's tie the next piece together.</h2>
@@ -200,11 +192,35 @@ const principles = [
             Tell us where the loose ends are. We'll help you connect them into something
             calm and dependable.
           </p>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            class="cta-btn"
-            data-umami-event="closing-cta-contact">Start a conversation</a
-          >
+
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-row">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" required maxlength="200" />
+            </div>
+            <div class="form-row">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" required maxlength="200" />
+            </div>
+            <div class="form-row">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" required maxlength="5000" rows="5"
+              ></textarea>
+            </div>
+            <!-- honeypot — hidden from real visitors, never labeled as real -->
+            <div class="form-hp" aria-hidden="true">
+              <input name="company" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <button type="submit" class="cta-btn" data-umami-event="closing-cta-contact"
+              >Start a conversation</button
+            >
+            <p class="form-status" id="contact-form-status" role="status"></p>
+          </form>
+
+          <p class="form-fallback">
+            Prefer email? Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+            directly.
+          </p>
         </div>
       </section>
     </main>
@@ -498,6 +514,49 @@ const principles = [
           { threshold: 0.12 }
         );
         revealEls.forEach((el) => observer.observe(el));
+      }
+    </script>
+
+    <script>
+      const form = document.getElementById("contact-form");
+      const status = document.getElementById("contact-form-status");
+      if (form && status) {
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const data = Object.fromEntries(new FormData(form as HTMLFormElement));
+          const submitBtn = form.querySelector(
+            'button[type="submit"]'
+          ) as HTMLButtonElement;
+
+          submitBtn.disabled = true;
+          status.textContent = "Sending…";
+          status.className = "form-status";
+
+          try {
+            const res = await fetch("/api/contact", {
+              method: "POST",
+              headers: { "content-type": "application/json" },
+              body: JSON.stringify(data),
+            });
+            const result = await res.json();
+
+            if (res.ok && result.ok) {
+              status.textContent = "Message sent — we'll get back to you soon.";
+              status.className = "form-status form-status--ok";
+              (form as HTMLFormElement).reset();
+            } else {
+              status.textContent =
+                result.error ||
+                "Something went wrong. Please try again or email us directly.";
+              status.className = "form-status form-status--error";
+            }
+          } catch {
+            status.textContent = "Network error. Please try again or email us directly.";
+            status.className = "form-status form-status--error";
+          } finally {
+            submitBtn.disabled = false;
+          }
+        });
       }
     </script>
   </body>
