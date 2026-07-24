@@ -545,7 +545,8 @@ const principles = [
     <script>
       const toggle = document.getElementById("contact-toggle");
       const wrap = document.getElementById("contact-form-wrap");
-      if (toggle && wrap) {
+      const contactSection = document.getElementById("contact");
+      if (toggle && wrap && contactSection) {
         toggle.addEventListener("click", () => {
           wrap.hidden = false;
           toggle.classList.add("is-hidden");
@@ -553,6 +554,23 @@ const principles = [
           requestAnimationFrame(() => wrap.classList.add("is-open"));
           document.getElementById("cf-name")?.focus();
         });
+
+        // Collapse back to the toggle once the section scrolls fully out of
+        // view, so it's always hidden-by-default on the way back in.
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting && !wrap.hidden) {
+                wrap.classList.remove("is-open");
+                wrap.hidden = true;
+                toggle.classList.remove("is-hidden");
+                toggle.setAttribute("aria-expanded", "false");
+              }
+            }
+          },
+          { threshold: 0 }
+        );
+        observer.observe(contactSection);
       }
     </script>
 
