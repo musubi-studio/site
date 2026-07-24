@@ -193,29 +193,54 @@ const principles = [
             calm and dependable.
           </p>
 
-          <form id="contact-form" class="contact-form" novalidate>
-            <div class="form-row">
-              <label for="cf-name">Name</label>
-              <input id="cf-name" name="name" type="text" required maxlength="200" />
-            </div>
-            <div class="form-row">
-              <label for="cf-email">Email</label>
-              <input id="cf-email" name="email" type="email" required maxlength="200" />
-            </div>
-            <div class="form-row">
-              <label for="cf-message">Message</label>
-              <textarea id="cf-message" name="message" required maxlength="5000" rows="5"
-              ></textarea>
-            </div>
-            <!-- honeypot — hidden from real visitors, never labeled as real -->
-            <div class="form-hp" aria-hidden="true">
-              <input name="company" type="text" tabindex="-1" autocomplete="off" />
-            </div>
-            <button type="submit" class="cta-btn" data-umami-event="closing-cta-contact"
-              >Start a conversation</button
-            >
-            <p class="form-status" id="contact-form-status" role="status"></p>
-          </form>
+          <button
+            type="button"
+            id="contact-toggle"
+            class="cta-btn"
+            data-umami-event="closing-cta-contact"
+            aria-expanded="false"
+            aria-controls="contact-form-wrap">Start a conversation</button
+          >
+
+          <div class="contact-form-wrap" id="contact-form-wrap" hidden>
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-row">
+                <label for="cf-name">Name</label>
+                <input id="cf-name" name="name" type="text" required maxlength="200" />
+              </div>
+              <div class="form-row">
+                <label for="cf-email">Email</label>
+                <input id="cf-email" name="email" type="email" required maxlength="200" />
+              </div>
+              <div class="form-row">
+                <label for="cf-subject"
+                  >Subject <span class="form-optional">(optional)</span></label
+                >
+                <input id="cf-subject" name="subject" type="text" maxlength="200" />
+                <p class="form-hint">
+                  Messages are scanned and triaged by hand — a clear subject makes it
+                  easier for us to pick the thread back up.
+                </p>
+              </div>
+              <div class="form-row">
+                <label for="cf-message">Message</label>
+                <textarea
+                  id="cf-message"
+                  name="message"
+                  required
+                  maxlength="5000"
+                  rows="5"></textarea>
+              </div>
+              <!-- honeypot — hidden from real visitors, never labeled as real -->
+              <div class="form-hp" aria-hidden="true">
+                <input name="company" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+              <button type="submit" class="cta-btn" data-umami-event="contact-form-submit"
+                >Send message</button
+              >
+              <p class="form-status" id="contact-form-status" role="status"></p>
+            </form>
+          </div>
 
           <p class="form-fallback">
             Prefer email? Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
@@ -514,6 +539,20 @@ const principles = [
           { threshold: 0.12 }
         );
         revealEls.forEach((el) => observer.observe(el));
+      }
+    </script>
+
+    <script>
+      const toggle = document.getElementById("contact-toggle");
+      const wrap = document.getElementById("contact-form-wrap");
+      if (toggle && wrap) {
+        toggle.addEventListener("click", () => {
+          wrap.hidden = false;
+          toggle.classList.add("is-hidden");
+          toggle.setAttribute("aria-expanded", "true");
+          requestAnimationFrame(() => wrap.classList.add("is-open"));
+          document.getElementById("cf-name")?.focus();
+        });
       }
     </script>
 
