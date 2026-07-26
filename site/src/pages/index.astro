@@ -106,10 +106,8 @@ const principles = [
     >
       <a href="#capabilities" class="mobile-nav-link">Work</a>
       <a href="#philosophy" class="mobile-nav-link">Approach</a>
-      <a
-        href={`mailto:${CONTACT_EMAIL}`}
-        class="mobile-nav-link"
-        data-umami-event="nav-contact-mobile">Contact</a
+      <a href="#contact" class="mobile-nav-link" data-umami-event="nav-contact-mobile"
+        >Contact</a
       >
     </div>
 
@@ -123,11 +121,7 @@ const principles = [
         <nav class="desktop-nav">
           <a href="#capabilities" class="nav-link">Work</a>
           <a href="#philosophy" class="nav-link">Approach</a>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            class="nav-link"
-            data-umami-event="nav-contact">Contact</a
-          >
+          <a href="#contact" class="nav-link" data-umami-event="nav-contact">Contact</a>
         </nav>
         <button
           class="hamburger"
@@ -148,19 +142,19 @@ const principles = [
         <div class="container">
           <div class="hero-grid">
             <div>
-              <p class="eyebrow">
+              <p class="eyebrow hero-enter" style="--delay:80ms">
                 <span class="eyebrow-rule" aria-hidden="true"></span>
                 Engineering studio
               </p>
-              <h1>
+              <h1 class="hero-enter" style="--delay:200ms">
                 We tie the loose ends into systems that{" "}
                 <em>simply work</em>.
               </h1>
-              <p class="hero-sub">
+              <p class="hero-sub hero-enter" style="--delay:340ms">
                 Musubi designs and builds automations, data platforms, and AI systems for
                 growing companies — delivered in small, measurable increments.
               </p>
-              <div class="hero-actions">
+              <div class="hero-actions hero-enter" style="--delay:460ms">
                 <a href="#contact" class="cta-btn" data-umami-event="hero-cta-contact"
                   >Start a conversation</a
                 >
@@ -172,7 +166,7 @@ const principles = [
               </div>
             </div>
 
-            <div>
+            <div class="hero-enter" style="--delay:300ms">
               <canvas id="hero-graph"></canvas>
               <p class="hero-caption">
                 <span class="kanji">結び</span> — musubi, to bind and connect.
@@ -193,8 +187,8 @@ const principles = [
           <h2>Four ways we help you move.</h2>
           <div class="capabilities-grid">
             {
-              capabilities.map((c) => (
-                <div class="capability-item">
+              capabilities.map((c, i) => (
+                <div class="capability-item" data-stagger style={`--i:${i}`}>
                   <span class="num">{c.no}</span>
                   <h3>{c.title}</h3>
                   <p>{c.body}</p>
@@ -211,8 +205,8 @@ const principles = [
           <h2>Five problems we've solved before.</h2>
           <div class="projects-list">
             {
-              projects.map((p) => (
-                <div class="project-item" tabindex="0">
+              projects.map((p, i) => (
+                <div class="project-item" data-stagger style={`--i:${i}`} tabindex="0">
                   <span class="project-tag">{p.tag}</span>
                   <p class="project-problem">{p.problem}</p>
                   <div class="project-body-wrap">
@@ -237,7 +231,13 @@ const principles = [
           </blockquote>
           <div class="rule-draw" aria-hidden="true"></div>
           <ul class="principles">
-            {principles.map((p) => <li>{p}</li>)}
+            {
+              principles.map((p, i) => (
+                <li data-stagger style={`--i:${i}`}>
+                  {p}
+                </li>
+              ))
+            }
           </ul>
         </div>
       </section>
@@ -542,10 +542,43 @@ const principles = [
     </script>
 
     <script>
+      // Header scroll state
       const header = document.getElementById("site-header");
       const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
+
+      // Hero entrance
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) {
+        document.body.classList.add("is-loaded");
+      } else {
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => document.body.classList.add("is-loaded"))
+        );
+      }
+
+      // Nav active section
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".desktop-nav .nav-link[href^='#']");
+      if (sections.length && navLinks.length) {
+        const sectionObserver = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                navLinks.forEach((link) =>
+                  link.classList.toggle(
+                    "is-active",
+                    link.getAttribute("href") === `#${entry.target.id}`
+                  )
+                );
+              }
+            }
+          },
+          { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+        );
+        sections.forEach((s) => sectionObserver.observe(s));
+      }
     </script>
 
     <script>
