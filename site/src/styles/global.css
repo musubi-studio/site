@@ -404,7 +404,7 @@ body::after {
 
 .projects {
   padding: 96px 0;
-  background: var(--bg);
+  background: var(--paper);
 }
 
 .projects h2 {

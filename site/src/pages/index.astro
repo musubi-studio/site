@@ -106,8 +106,10 @@ const principles = [
     >
       <a href="#capabilities" class="mobile-nav-link">Work</a>
       <a href="#philosophy" class="mobile-nav-link">Approach</a>
-      <a href="#contact" class="mobile-nav-link" data-umami-event="nav-contact-mobile"
-        >Contact</a
+      <a
+        href={`mailto:${CONTACT_EMAIL}`}
+        class="mobile-nav-link"
+        data-umami-event="nav-contact-mobile">Contact</a
       >
     </div>
 
@@ -121,7 +123,11 @@ const principles = [
         <nav class="desktop-nav">
           <a href="#capabilities" class="nav-link">Work</a>
           <a href="#philosophy" class="nav-link">Approach</a>
-          <a href="#contact" class="nav-link" data-umami-event="nav-contact">Contact</a>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            class="nav-link"
+            data-umami-event="nav-contact">Contact</a
+          >
         </nav>
         <button
           class="hamburger"
@@ -202,7 +208,6 @@ const principles = [
       <!-- Projects -->
       <section id="projects" class="projects reveal" style="scroll-margin-top:96px">
         <div class="container">
-          <p class="eyebrow">Work we know well</p>
           <h2>Five problems we've solved before.</h2>
           <div class="projects-list">
             {
