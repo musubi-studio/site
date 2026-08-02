@@ -199,9 +199,9 @@ export const strings: Record<Locale, Strings> = {
         "Musubi diseña y construye automatizaciones, plataformas de datos y sistemas de IA mediante entregas pequeñas, medibles e incrementales.",
     },
     nav: {
-      work: "Trabajo",
-      approach: "Enfoque",
-      contact: "Contacto",
+      work: "Servicios",
+      approach: "Filosofía",
+      contact: "Hablemos",
       ariaLabel: "Navegación",
       toggleMenu: "Alternar menú",
       home: "Inicio de Musubi",
