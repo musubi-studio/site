@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+---
+
+<Base
+  title="Musubi Blog — Field notes on data, automation, and engineering"
+  description="Practical writing on data platforms, DataOps, automation, and AI workflows from the Musubi team."
+>
+  <main>
+    <div class="container">
+      <div class="post-list-header">
+        <h1>Field notes.</h1>
+        <p>
+          Practical writing on data platforms, DataOps, automation, and the messy reality
+          of building systems that actually work.
+        </p>
+      </div>
+
+      {
+        posts.length === 0 ? (
+          <p style="color: var(--muted); padding-bottom: 96px;">
+            First post coming soon.
+          </p>
+        ) : (
+          <ul class="post-list">
+            {posts.map((post) => (
+              <li class="post-item">
+                <a href={`/${post.slug}/`}>
+                  <div class="post-meta">
+                    {post.data.tag && <span class="post-tag">{post.data.tag}</span>}
+                    <span class="post-date">{formatDate(post.data.pubDate)}</span>
+                  </div>
+                  <h2 class="post-title">{post.data.title}</h2>
+                  <p class="post-description">{post.data.description}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </main>
+</Base>
