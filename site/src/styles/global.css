@@ -716,7 +716,14 @@ body::after {
   transform: translateY(0);
 }
 .contact-calendly-wrap .calendly-inline-widget {
-  min-height: 700px;
+  min-width: 320px;
+  height: 700px;
+}
+
+@media (max-width: 640px) {
+  .contact-calendly-wrap .calendly-inline-widget {
+    height: 850px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .contact-calendly-wrap {
