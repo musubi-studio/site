@@ -232,6 +232,51 @@ body::after {
   width: 100%;
 }
 
+/* ── Language switcher ── */
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 24px;
+  border-left: 1px solid var(--hairline);
+}
+.lang-sep {
+  color: var(--hairline);
+  font-size: 12px;
+}
+.lang-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.lang-link:hover {
+  color: var(--carbon);
+}
+.lang-link[aria-current="page"] {
+  color: var(--clay);
+  font-weight: 500;
+}
+
+.mobile-lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.mobile-lang-switch .lang-link {
+  font-size: 14px;
+  padding: 4px 10px;
+  border: 1px solid var(--hairline);
+  border-radius: 9999px;
+}
+.mobile-lang-switch .lang-link[aria-current="page"] {
+  border-color: var(--clay);
+}
+
 /* ── Buttons ── */
 
 .cta-btn {
