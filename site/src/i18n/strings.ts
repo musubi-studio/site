@@ -207,8 +207,8 @@ export const strings: Record<Locale, Strings> = {
     hero: {
       eyebrow: "Estudio de ingeniería",
       heading: "Atamos los cabos sueltos en sistemas que {em}simplemente funcionan{/em}.",
-      sub: "Musubi diseña y construye automatizaciones, plataformas de datos y sistemas de IA para empresas en crecimiento — entregados en incrementos pequeños y medibles.",
-      ctaContact: "Iniciar una conversación",
+      sub: "Musubi diseña y construye automatizaciones, plataformas de datos y sistemas de IA para empresas en crecimiento — de forma incremental y orgánica, al mismo ritmo que tu negocio.",
+      ctaContact: "Conversemos",
       ctaWork: "Ver qué hacemos",
       captionKanji: "— musubi: atar y conectar.",
     },
@@ -250,13 +250,13 @@ export const strings: Record<Locale, Strings> = {
         {
           tag: "Modernización de sistemas heredados",
           problem:
-            "Los reportes tardan horas en correr. La herramienta de BI que nadie recuerda haber comprado sigue corriendo dashboards críticos.",
+            "Los reportes tardan horas en generarse. La herramienta de BI que nadie recuerda haber comprado todavía sostiene dashboards críticos.",
           body: "Migramos lo que importa, damos de baja lo que no, y reemplazamos pipelines frágiles por algo mantenible — sin detener el negocio mientras lo hacemos.",
         },
         {
           tag: "DataOps",
           problem:
-            "Los despliegues necesitan pasos manuales. Los pipelines fallan en silencio. Nadie sabe realmente para qué es la factura de la nube.",
+            "Los despliegues necesitan pasos manuales. Los pipelines fallan en silencio. Nadie sabe realmente en qué se va la factura de la nube.",
           body: "Traemos CI/CD, observabilidad y seguimiento de costos a tus flujos de datos, para detectar fallas a tiempo y entender la infraestructura.",
         },
         {
@@ -276,7 +276,7 @@ export const strings: Record<Locale, Strings> = {
     philosophy: {
       eyebrow: "Enfoque",
       quote:
-        "El software envejece cuando intenta resolver todo el primer día. Preferimos sistemas pequeños, entendibles y evolutivos — cada entrega resolviendo un problema real, integrándose con lo que ya existe, y dejando el camino abierto para el siguiente paso. La mejor tecnología es la que {em}desaparece{/em} detrás del trabajo de las personas.",
+        "El software envejece cuando intenta resolver todo el primer día. Preferimos sistemas pequeños, entendibles y evolutivos: cada entrega resuelve un problema real, se integra con lo que ya existe y deja el camino abierto para el siguiente paso. La mejor tecnología es la que {em}desaparece{/em} detrás del trabajo de las personas.",
       principles: [
         "No reemplazamos sistemas porque sí. Conectamos lo que ya funciona.",
         "No diseñamos plataformas gigantes. Componemos piezas pequeñas.",
@@ -286,8 +286,8 @@ export const strings: Record<Locale, Strings> = {
     },
     contact: {
       heading: "Atemos la próxima pieza juntos.",
-      sub: "Cuéntanos dónde están los cabos sueltos. Te ayudamos a conectarlos en algo tranquilo y confiable.",
-      toggle: "Iniciar una conversación",
+      sub: "Cuéntanos dónde están los cabos sueltos. Te ayudaremos a conectarlos en algo tranquilo y confiable.",
+      toggle: "Conversemos",
       formName: "Nombre",
       formEmail: "Email",
       formSubject: "Asunto",
