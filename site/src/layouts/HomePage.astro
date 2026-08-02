@@ -242,14 +242,24 @@ function emphasize(str: string) {
             {t.contact.sub}
           </p>
 
-          <button
-            type="button"
-            id="contact-toggle"
-            class="cta-btn"
-            data-umami-event="closing-cta-contact"
-            aria-expanded="false"
-            aria-controls="contact-form-wrap">{t.contact.toggle}</button
-          >
+          <div class="contact-options">
+            <button
+              type="button"
+              id="contact-btn-form"
+              class="cta-btn cta-btn--outline contact-option-btn"
+              data-umami-event="closing-cta-form"
+              aria-pressed="false"
+              aria-controls="contact-form-wrap">{t.contact.toggleForm}</button
+            >
+            <button
+              type="button"
+              id="contact-btn-call"
+              class="cta-btn cta-btn--outline contact-option-btn"
+              data-umami-event="closing-cta-calendly"
+              aria-pressed="false"
+              aria-controls="contact-calendly-wrap">{t.contact.toggleCall}</button
+            >
+          </div>
 
           <div class="contact-form-wrap" id="contact-form-wrap" hidden>
             <form id="contact-form" class="contact-form" novalidate>
@@ -291,6 +301,14 @@ function emphasize(str: string) {
               >
               <p class="form-status" id="contact-form-status" role="status"></p>
             </form>
+          </div>
+
+          <div class="contact-calendly-wrap" id="contact-calendly-wrap" hidden>
+            <div
+              class="calendly-inline-widget"
+              data-url="https://calendly.com/musubi-studio/30min?hide_landing_page_details=1"
+            >
+            </div>
           </div>
 
           <p class="form-fallback">
@@ -627,34 +645,64 @@ function emphasize(str: string) {
     </script>
 
     <script>
-      const toggle = document.getElementById("contact-toggle");
-      const wrap = document.getElementById("contact-form-wrap");
+      const btnForm = document.getElementById("contact-btn-form");
+      const btnCall = document.getElementById("contact-btn-call");
+      const wrapForm = document.getElementById("contact-form-wrap");
+      const wrapCall = document.getElementById("contact-calendly-wrap");
       const contactSection = document.getElementById("contact");
-      if (toggle && wrap && contactSection) {
-        toggle.addEventListener("click", () => {
-          wrap.hidden = false;
-          toggle.classList.add("is-hidden");
-          toggle.setAttribute("aria-expanded", "true");
-          requestAnimationFrame(() => wrap.classList.add("is-open"));
-          document.getElementById("cf-name")?.focus();
+
+      if (btnForm && btnCall && wrapForm && wrapCall && contactSection) {
+        let calendlyLoaded = false;
+
+        function showPanel(which) {
+          const showForm = which === "form";
+          const showCall = which === "call";
+
+          btnForm.classList.toggle("cta-btn--outline", !showForm);
+          btnCall.classList.toggle("cta-btn--outline", !showCall);
+          btnForm.setAttribute("aria-pressed", String(showForm));
+          btnCall.setAttribute("aria-pressed", String(showCall));
+
+          if (showForm) {
+            wrapForm.hidden = false;
+            requestAnimationFrame(() => wrapForm.classList.add("is-open"));
+            document.getElementById("cf-name")?.focus();
+          } else {
+            wrapForm.classList.remove("is-open");
+            wrapForm.hidden = true;
+          }
+
+          if (showCall) {
+            if (!calendlyLoaded) {
+              const s = document.createElement("script");
+              s.src = "https://assets.calendly.com/assets/external/widget.js";
+              s.async = true;
+              document.head.appendChild(s);
+              calendlyLoaded = true;
+            }
+            wrapCall.hidden = false;
+            requestAnimationFrame(() => wrapCall.classList.add("is-open"));
+          } else {
+            wrapCall.classList.remove("is-open");
+            wrapCall.hidden = true;
+          }
+        }
+
+        btnForm.addEventListener("click", () => {
+          showPanel(btnForm.getAttribute("aria-pressed") === "true" ? null : "form");
+        });
+        btnCall.addEventListener("click", () => {
+          showPanel(btnCall.getAttribute("aria-pressed") === "true" ? null : "call");
         });
 
-        // Collapse back to the toggle once the section scrolls fully out of
-        // view, so it's always hidden-by-default on the way back in.
-        const observer = new IntersectionObserver(
+        new IntersectionObserver(
           (entries) => {
             for (const entry of entries) {
-              if (!entry.isIntersecting && !wrap.hidden) {
-                wrap.classList.remove("is-open");
-                wrap.hidden = true;
-                toggle.classList.remove("is-hidden");
-                toggle.setAttribute("aria-expanded", "false");
-              }
+              if (!entry.isIntersecting) showPanel(null);
             }
           },
           { threshold: 0 }
-        );
-        observer.observe(contactSection);
+        ).observe(contactSection);
       }
     </script>
 

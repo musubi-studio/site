@@ -52,7 +52,8 @@ export interface Strings {
   contact: {
     heading: string;
     sub: string;
-    toggle: string;
+    toggleForm: string;
+    toggleCall: string;
     formName: string;
     formEmail: string;
     formSubject: string;
@@ -170,7 +171,8 @@ export const strings: Record<Locale, Strings> = {
     contact: {
       heading: "Let's tie the next piece together.",
       sub: "Tell us where the loose ends are. We'll help you connect them into something calm and dependable.",
-      toggle: "Start a conversation",
+      toggleForm: "Write a message",
+      toggleCall: "Book a 30 min call",
       formName: "Name",
       formEmail: "Email",
       formSubject: "Subject",
@@ -287,7 +289,8 @@ export const strings: Record<Locale, Strings> = {
     contact: {
       heading: "Atemos la próxima pieza juntos.",
       sub: "Cuéntanos dónde están los cabos sueltos. Te ayudaremos a conectarlos en algo tranquilo y confiable.",
-      toggle: "Conversemos",
+      toggleForm: "Escribir consulta",
+      toggleCall: "Agendar un meet",
       formName: "Nombre",
       formEmail: "Email",
       formSubject: "Asunto",

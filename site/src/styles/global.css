@@ -663,13 +663,27 @@ body::after {
 
 /* ── Contact form ── */
 
-#contact-toggle {
+.contact-options {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-option-btn {
   border: none;
   cursor: pointer;
   font: inherit;
 }
-#contact-toggle.is-hidden {
-  display: none;
+
+.cta-btn--outline {
+  background: none;
+  color: var(--carbon);
+  border: 1px solid var(--hairline);
+}
+.cta-btn--outline:hover {
+  opacity: 1;
+  border-color: var(--carbon);
 }
 
 .contact-form-wrap {
@@ -687,6 +701,28 @@ body::after {
 }
 @media (prefers-reduced-motion: reduce) {
   .contact-form-wrap {
+    transition: none;
+  }
+}
+
+.contact-calendly-wrap {
+  max-width: 640px;
+  margin: 40px auto 0;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+.contact-calendly-wrap.is-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+.contact-calendly-wrap .calendly-inline-widget {
+  min-height: 700px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-calendly-wrap {
     transition: none;
   }
 }
