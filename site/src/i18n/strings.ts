@@ -278,7 +278,7 @@ export const strings: Record<Locale, Strings> = {
     philosophy: {
       eyebrow: "Enfoque",
       quote:
-        "El software envejece cuando intenta resolver todo el primer día. Preferimos sistemas pequeños, entendibles y evolutivos: cada entrega resuelve un problema real, se integra con lo que ya existe y deja el camino abierto para el siguiente paso. La mejor tecnología es la que {em}desaparece{/em} detrás del trabajo de las personas.",
+        "Los sistemas que intentan resolverlo todo desde el primer día suelen convertirse en sistemas difíciles de entender y mantener. Preferimos construir de forma incremental: cada entrega aporta valor, se integra con lo existente y facilita la siguiente evolución. La mejor tecnología es la que potencia el trabajo de las personas sin convertirse en {em}protagonista{/em}.",
       principles: [
         "No reemplazamos sistemas porque sí. Conectamos lo que ya funciona.",
         "No diseñamos plataformas gigantes. Componemos piezas pequeñas.",
