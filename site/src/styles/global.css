@@ -318,6 +318,7 @@ body::after {
 .eyebrow {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   font-family: var(--font-sans);
   font-size: 12px; /* +1px */
@@ -344,13 +345,7 @@ body::after {
   display: grid;
   grid-template-columns: 1fr;
   gap: 48px;
-}
-@media (min-width: 768px) {
-  .hero-grid {
-    grid-template-columns: 7fr 5fr;
-    gap: 32px;
-    align-items: start;
-  }
+  text-align: center;
 }
 
 .hero h1 {
@@ -372,19 +367,22 @@ body::after {
   line-height: 1.65;
   color: var(--muted);
   max-width: 44ch;
-  margin: 0 0 36px;
+  margin: 0 auto 36px;
 }
 .hero-actions {
   display: flex;
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 #hero-graph {
   width: 100%;
+  max-width: 380px;
   aspect-ratio: 4 / 5;
   display: block;
   cursor: crosshair;
+  margin: 0 auto;
 }
 .hero-caption {
   margin-top: 10px;
@@ -392,7 +390,7 @@ body::after {
   font-size: 14px; /* +1px */
   font-style: italic;
   color: var(--faint);
-  text-align: right;
+  text-align: center;
 }
 
 .hero-caption .kanji {
@@ -404,6 +402,7 @@ body::after {
 
 .capabilities {
   padding: 96px 0;
+  text-align: center;
 }
 
 .capabilities h2 {
@@ -414,7 +413,7 @@ body::after {
   letter-spacing: -0.01em;
   color: var(--carbon);
   max-width: 38ch;
-  margin: 6px 0 56px;
+  margin: 6px auto 56px;
 }
 .capabilities-grid {
   display: grid;
@@ -430,6 +429,7 @@ body::after {
 .capability-item {
   border-top: 1px solid var(--hairline);
   padding-top: 24px;
+  text-align: left;
 }
 .capability-item .num {
   font-family: var(--font-serif);
@@ -457,6 +457,7 @@ body::after {
 .projects {
   padding: 96px 0;
   background: var(--paper);
+  text-align: center;
 }
 
 .projects h2 {
@@ -467,7 +468,7 @@ body::after {
   letter-spacing: -0.01em;
   color: var(--carbon);
   max-width: 38ch;
-  margin: 6px 0 56px;
+  margin: 6px auto 56px;
 }
 
 .projects-list {
@@ -483,6 +484,7 @@ body::after {
   grid-template-columns: 1fr;
   gap: 10px;
   transition: border-color 0.4s ease;
+  text-align: left;
 }
 
 @media (min-width: 768px) {
@@ -567,6 +569,7 @@ body::after {
 .philosophy {
   background: var(--surface);
   padding: 112px 0;
+  text-align: center;
 }
 
 .philosophy blockquote {
@@ -617,6 +620,7 @@ body::after {
   font-size: 15.5px; /* +1px */
   line-height: 1.65;
   color: var(--muted);
+  text-align: left;
 }
 .principles li::before {
   content: "";
@@ -634,13 +638,6 @@ body::after {
 .closing-cta {
   padding: 128px 0;
   text-align: center;
-}
-.closing-cta img {
-  display: block;
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 32px;
-  opacity: 0.9;
 }
 .closing-cta h2 {
   font-family: var(--font-serif);
