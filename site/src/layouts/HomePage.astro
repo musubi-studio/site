@@ -27,6 +27,14 @@ function emphasize(str: string) {
     <title>{t.meta.title}</title>
     <meta name="description" content={t.meta.description} />
 
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Musubi" />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={getAbsoluteLocaleUrl(lang)} />
+    <meta property="og:locale" content={lang === "es" ? "es_419" : "en_US"} />
+    <meta property="og:locale:alternate" content={lang === "es" ? "en_US" : "es_419"} />
+
     <link rel="canonical" href={getAbsoluteLocaleUrl(lang)} />
     {
       LOCALES.map((l) => (
@@ -336,10 +344,8 @@ function emphasize(str: string) {
             <li><a href="#capabilities" class="nav-link">{t.nav.work}</a></li>
             <li><a href="#philosophy" class="nav-link">{t.nav.approach}</a></li>
             <li>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                class="nav-link"
-                data-umami-event="footer-contact">{CONTACT_EMAIL}</a
+              <a href="#contact" class="nav-link" data-umami-event="footer-contact"
+                >{t.nav.contact}</a
               >
             </li>
           </ul>
