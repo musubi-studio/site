@@ -289,8 +289,8 @@ export const strings: Record<Locale, Strings> = {
     contact: {
       heading: "Atemos la próxima pieza juntos.",
       sub: "Cuéntanos dónde están los cabos sueltos. Te ayudaremos a conectarlos en algo que simplemente funcione.",
-      toggleForm: "Escribir consulta",
-      toggleCall: "Agendar un meet",
+      toggleForm: "Escribir un mensaje",
+      toggleCall: "Agendar una llamada de 30 min",
       formName: "Nombre",
       formEmail: "Email",
       formSubject: "Asunto",
