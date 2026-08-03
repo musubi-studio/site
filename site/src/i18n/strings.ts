@@ -170,7 +170,7 @@ export const strings: Record<Locale, Strings> = {
     },
     contact: {
       heading: "Let's tie the next piece together.",
-      sub: "Tell us where the loose ends are. We'll help you connect them into something calm and dependable.",
+      sub: "Tell us where the loose ends are. We'll help you connect them into something that simply works.",
       toggleForm: "Write a message",
       toggleCall: "Book a 30 min call",
       formName: "Name",
@@ -209,7 +209,7 @@ export const strings: Record<Locale, Strings> = {
     hero: {
       eyebrow: "Estudio de ingeniería",
       heading: "Atamos los cabos sueltos en sistemas que {em}simplemente funcionan{/em}.",
-      sub: "Musubi diseña y construye automatizaciones, plataformas de datos y sistemas de IA para empresas en crecimiento — de forma incremental y orgánica, al mismo ritmo que tu negocio.",
+      sub: "Musubi diseña y construye automatizaciones, plataformas de datos y sistemas de IA para empresas en crecimiento, con entregas pequeñas y medibles.",
       ctaContact: "Conversemos",
       ctaWork: "Ver qué hacemos",
       captionKanji: "— musubi: atar y conectar.",
@@ -278,7 +278,7 @@ export const strings: Record<Locale, Strings> = {
     philosophy: {
       eyebrow: "Enfoque",
       quote:
-        "Los sistemas que intentan resolverlo todo desde el primer día suelen convertirse en sistemas difíciles de entender y mantener. Preferimos construir de forma incremental: cada entrega aporta valor, se integra con lo existente y facilita la siguiente evolución. La mejor tecnología es la que potencia el trabajo de las personas sin convertirse en {em}protagonista{/em}.",
+        "Los sistemas que intentan resolverlo todo desde el primer día suelen convertirse en sistemas difíciles de entender y mantener. Preferimos construir de forma incremental: cada entrega resuelve un problema real, se integra con lo existente y deja abierto el camino para el siguiente paso. La mejor tecnología es la que potencia el trabajo de las personas sin convertirse en {em}protagonista{/em}.",
       principles: [
         "No reemplazamos sistemas porque sí. Conectamos lo que ya funciona.",
         "No diseñamos plataformas gigantes. Componemos piezas pequeñas.",
@@ -288,7 +288,7 @@ export const strings: Record<Locale, Strings> = {
     },
     contact: {
       heading: "Atemos la próxima pieza juntos.",
-      sub: "Cuéntanos dónde están los cabos sueltos. Te ayudaremos a conectarlos en algo tranquilo y confiable.",
+      sub: "Cuéntanos dónde están los cabos sueltos. Te ayudaremos a conectarlos en algo que simplemente funcione.",
       toggleForm: "Escribir consulta",
       toggleCall: "Agendar un meet",
       formName: "Nombre",
