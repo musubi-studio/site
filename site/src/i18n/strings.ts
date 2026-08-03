@@ -63,6 +63,8 @@ export interface Strings {
     formSubmit: string;
     formFallbackPrefix: string;
     formFallbackSuffix: string;
+    privacyLabel: string;
+    privacyBody: string;
     statusSending: string;
     statusOk: string;
     statusErrorGeneric: string;
@@ -170,7 +172,7 @@ export const strings: Record<Locale, Strings> = {
     },
     contact: {
       heading: "Let's tie the next piece together.",
-      sub: "Tell us where the loose ends are. We'll help you connect them into something that simply works.",
+      sub: "A quick call is often faster than a back-and-forth by email — but whichever you pick, we reply within a business day.",
       toggleForm: "Write a message",
       toggleCall: "Book a 30 min call",
       formName: "Name",
@@ -183,6 +185,9 @@ export const strings: Record<Locale, Strings> = {
       formSubmit: "Send message",
       formFallbackPrefix: "Prefer email? Write to",
       formFallbackSuffix: "directly.",
+      privacyLabel: "Privacy & security",
+      privacyBody:
+        "Only the people working on your project get access to your systems and data — and we don't keep it longer than the work requires.",
       statusSending: "Sending…",
       statusOk: "Message sent — we'll get back to you soon.",
       statusErrorGeneric: "Something went wrong. Please try again or email us directly.",
@@ -288,7 +293,7 @@ export const strings: Record<Locale, Strings> = {
     },
     contact: {
       heading: "Atemos la próxima pieza juntos.",
-      sub: "Cuéntanos dónde están los cabos sueltos. Te ayudaremos a conectarlos en algo que simplemente funcione.",
+      sub: "Una llamada corta suele ser más rápida que varios mails de ida y vuelta — pero elijas lo que elijas, te respondemos dentro de un día hábil.",
       toggleForm: "Escribir un mensaje",
       toggleCall: "Agendar una llamada de 30 min",
       formName: "Nombre",
@@ -301,6 +306,9 @@ export const strings: Record<Locale, Strings> = {
       formSubmit: "Enviar mensaje",
       formFallbackPrefix: "¿Prefieres el email? Escríbenos directo a",
       formFallbackSuffix: ".",
+      privacyLabel: "Privacidad y seguridad",
+      privacyBody:
+        "Solo las personas que trabajan en tu proyecto tienen acceso a tus sistemas y datos, y no los conservamos más tiempo del necesario.",
       statusSending: "Enviando…",
       statusOk: "Mensaje enviado — te responderemos pronto.",
       statusErrorGeneric:
