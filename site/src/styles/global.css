@@ -124,7 +124,7 @@ body::after {
   font-weight: 700;
   font-size: 1.95rem; /* +2px: was 1.75rem */
   line-height: 1;
-  color: #2b4f82;
+  color: #5c4033;
   text-transform: lowercase;
 }
 .desktop-nav {
