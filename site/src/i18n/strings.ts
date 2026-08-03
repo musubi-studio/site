@@ -105,7 +105,7 @@ export const strings: Record<Locale, Strings> = {
         {
           no: "01",
           title: "Connect",
-          body: "Tie together the systems and data your team already has — no rip-and-replace.",
+          body: "Plug into the systems and data your team already has, through existing APIs — no rip-and-replace.",
         },
         {
           no: "02",
@@ -164,7 +164,7 @@ export const strings: Record<Locale, Strings> = {
       quote:
         "Software ages when it tries to solve everything on day one. We prefer small, understandable, evolvable systems — each delivery solving a real problem, integrating with what exists, and leaving the path open for the next step. The best technology is the one that {em}disappears{/em} behind people's work.",
       principles: [
-        "We don't replace systems for the sake of it. We connect what already works.",
+        "We don't replace systems for the sake of it. We reuse what already works.",
         "We don't design giant platforms. We compose small pieces.",
         "We don't deliver projects. We build capabilities.",
         "We build systems the client's team can understand, operate, and extend.",
@@ -226,7 +226,7 @@ export const strings: Record<Locale, Strings> = {
         {
           no: "01",
           title: "Conectar",
-          body: "Unimos los sistemas y datos que tu equipo ya tiene — sin reemplazar todo desde cero.",
+          body: "Trabajamos con los sistemas y datos que tu equipo ya tiene, usando las APIs existentes — sin reemplazar todo desde cero.",
         },
         {
           no: "02",
@@ -285,7 +285,7 @@ export const strings: Record<Locale, Strings> = {
       quote:
         "Los sistemas que intentan resolverlo todo desde el primer día suelen convertirse en sistemas difíciles de entender y mantener. Preferimos construir de forma incremental: cada entrega resuelve un problema real, se integra con lo existente y deja abierto el camino para el siguiente paso. La mejor tecnología es la que potencia el trabajo de las personas sin convertirse en {em}protagonista{/em}.",
       principles: [
-        "No reemplazamos sistemas porque sí. Conectamos lo que ya funciona.",
+        "No reemplazamos sistemas porque sí. Reutilizamos lo que ya funciona.",
         "No diseñamos plataformas gigantes. Componemos piezas pequeñas.",
         "No entregamos proyectos. Construimos capacidades.",
         "Construimos sistemas que el equipo del cliente puede entender, operar y extender.",
