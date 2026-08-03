@@ -187,7 +187,7 @@ export const strings: Record<Locale, Strings> = {
       formFallbackSuffix: "directly.",
       privacyLabel: "Privacy & security",
       privacyBody:
-        "Only the people working on your project get access to your systems and data — and we don't keep it longer than the work requires.",
+        "Every interaction is confidential, with least-privilege access to your information from day one.",
       statusSending: "Sending…",
       statusOk: "Message sent — we'll get back to you soon.",
       statusErrorGeneric: "Something went wrong. Please try again or email us directly.",
@@ -308,7 +308,7 @@ export const strings: Record<Locale, Strings> = {
       formFallbackSuffix: ".",
       privacyLabel: "Privacidad y seguridad",
       privacyBody:
-        "Solo las personas que trabajan en tu proyecto tienen acceso a tus sistemas y datos, y no los conservamos más tiempo del necesario.",
+        "Confidencialidad en cada interacción y acceso a la información bajo least privilege desde el primer minuto.",
       statusSending: "Enviando…",
       statusOk: "Mensaje enviado — te responderemos pronto.",
       statusErrorGeneric:
